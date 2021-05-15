@@ -1,5 +1,10 @@
 #!/usr/bin/python2
 
+width = 30
+height = 15
+thickness = 4
+depth = 20
+
 import os
 import sys
 
@@ -63,12 +68,12 @@ doc.BracketBody.newObject('Sketcher::SketchObject','BracketSketch')
 doc.BracketSketch.Support = (doc.XZ_Plane, [''])
 doc.BracketSketch.MapMode = 'FlatFace'
 
-makeU(doc.BracketSketch, width=30, height=15, thickness=4)
+makeU(doc.BracketSketch, width=width, height=height, thickness=thickness)
 doc.recompute()
 
 doc.BracketBody.newObject('PartDesign::Pad','BracketPad')
 doc.BracketPad.Profile = doc.BracketSketch
-doc.BracketPad.Length = 20
+doc.BracketPad.Length = depth
 doc.recompute()
 
 doc.saveAs(filename)
