@@ -64,7 +64,11 @@ doc.BracketSketch.Support = (doc.XZ_Plane, [''])
 doc.BracketSketch.MapMode = 'FlatFace'
 
 makeU(doc.BracketSketch, width=30, height=15, thickness=4)
+doc.recompute()
 
+doc.BracketBody.newObject('PartDesign::Pad','BracketPad')
+doc.BracketPad.Profile = doc.BracketSketch
+doc.BracketPad.Length = 20
 doc.recompute()
 
 doc.saveAs(filename)
